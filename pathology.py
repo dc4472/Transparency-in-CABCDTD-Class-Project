@@ -7,8 +7,8 @@ import pandas as pd
 import re
 
 # Read in the description data
-train = pd.read_csv('/content/drive/MyDrive/CBIS-DDSM/mass_case_description_train_set.csv')
-test = pd.read_csv('/content/drive/MyDrive/CBIS-DDSM/mass_case_description_test_set.csv')
+train = pd.read_csv('/mass_case_description_train_set.csv')
+test = pd.read_csv('/mass_case_description_test_set.csv')
 
 # Extract columns we need
 train_need = train[['patient_id', 'pathology', 'image file path', 'cropped image file path', 'ROI mask file path']]
