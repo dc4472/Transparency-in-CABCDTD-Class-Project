@@ -33,7 +33,7 @@ dicom_data = pd.read_csv('all_mass_pathology.csv')
 
 # Read in the image path info
 # Specify the root path where the .png files are located
-jpg_root_path = 'all_598_augmented'
+jpg_root_path = '../all_598_augmented'
 
 # Function to get all .png file paths in a directory
 def get_jpg_file_paths(directory):
