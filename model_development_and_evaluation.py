@@ -7,7 +7,8 @@
 ################################
 
 # Install packages/hubs/ others needed
-pip install pydicom
+
+#pip install pydicom
 
 # Load modules
 import os
@@ -92,8 +93,9 @@ original_df = df[df['File_Paths'].apply(check_filename)]
 ###################
 
 # Install tensorflow-hub and timm
-pip install tensorflow-hub
-pip install timm
+
+#pip install tensorflow-hub
+#pip install timm
 
 # Model structure
 import torch
@@ -257,7 +259,7 @@ val_data, test_data = train_test_split(temp_data, test_size=1/2)
 
 # Create datasets and dataloaders for train, validation, and test sets
 train_dataset_ = CustomDataset(train_data_augmented, transform=transform_)
-train_loader_ = DataLoader(train_dataset_, batch_size=32, shuffle=True)
+train_loader = DataLoader(train_dataset_, batch_size=32, shuffle=True)
 
 val_dataset = CustomDataset(val_data, transform=transform_)
 val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)  # No need to shuffle validation data
