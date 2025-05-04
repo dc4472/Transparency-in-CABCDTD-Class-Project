@@ -9,7 +9,7 @@
 #SBATCH --mem=32G
 #SBATCH --time=04:00:00                      # Adjust time as needed
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=your.email@nyu.edu       # Replace with your email
+#SBATCH --mail-user=dc4472@nyu.edu       # Replace with your email
 
 # Load the appropriate Python and CUDA modules
 module purge
