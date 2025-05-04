@@ -7,7 +7,7 @@
 ################################
 
 # Install packages/hubs/ others needed
-pip install pydicom
+#pip install pydicom
 
 # Load modules
 import os
@@ -92,8 +92,8 @@ original_df = df[df['File_Paths'].apply(check_filename)]
 ###################
 
 # Install tensorflow-hub and timm
-pip install tensorflow-hub
-pip install timm
+#pip install tensorflow-hub
+#pip install timm
 
 # Model structure
 import torch
