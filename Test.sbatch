@@ -17,7 +17,7 @@ module load python/3.9
 module load cuda/11.7  # Adjust to what's supported on your cluster if needed
 
 # Create a virtual environment if not exists
-ENV_DIR="$HOME/envs/breast_cancer_env"
+ENV_DIR="$HOME/Transparency-in-CABCDTD-Class-Project/breast_cancer_env"
 if [ ! -d "$ENV_DIR" ]; then
   python -m venv $ENV_DIR
   source $ENV_DIR/bin/activate
