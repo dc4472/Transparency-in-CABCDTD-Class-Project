@@ -281,7 +281,7 @@ optimizer = optim.Adam(model.parameters(), lr=0.000003)  # Adjust the learning r
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
-num_epochs = 20 # It could be increases based on your model's performance
+num_epochs = 0 # It could be increases based on your model's performance this was 20
 
 for epoch in range(num_epochs):
     model.train()  # Set the model to train mode
@@ -365,7 +365,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load the best model state dictionary based on the validation accuracy
-model.load_state_dict(torch.load('model_epoch_32.pth')) # You will want to update this based on your training checkpoints' performances
+model.load_state_dict(torch.load('model_epoch_20.pth')) # You will want to update this based on your training checkpoints' performances
 
 # Set the model to evaluation mode
 model.eval()
@@ -522,6 +522,6 @@ plt.title('Receiver Operating Characteristic (ROC) Curve')
 plt.legend(loc="lower right")
 
 # Save the plot as PDF with 1000dpi
-plt.savefig('roc_curve.pdf', dpi=1000)
+plt.savefig('roc_curve.png')
 plt.show()
 
