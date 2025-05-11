@@ -1,10 +1,11 @@
 #!/bin/bash
+#SBATCH --requeue
 #SBATCH --job-name=breast_cancer_model
 #SBATCH --output=model_output.log
 #SBATCH --error=model_error.log
 #SBATCH --account=cs_ga_3033_102-2025sp
-#SBATCH --partition=g2-standard-24           # Or any other GPU partition available to you
-#SBATCH --gres=gpu:1                         # Request 1 GPU
+#SBATCH --partition=c12m85-a100-1       # Try this or stake_a100_2 / v100 if it fails
+#SBATCH --gres=gpu:a100:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
 #SBATCH --time=04:00:00                      # Adjust time as needed
