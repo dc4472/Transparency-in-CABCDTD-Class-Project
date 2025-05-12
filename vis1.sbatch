@@ -1,36 +1,23 @@
 #!/bin/bash
-#SBATCH --requeue
-#SBATCH --job-name=breast_cancer_model
-#SBATCH --output=model_output.log
-#SBATCH --error=model_error.log
+#SBATCH --job-name=run_image_processing
+#SBATCH --output=output.log
+#SBATCH --error=error.log
 #SBATCH --account=cs_ga_3033_102-2025sp
-#SBATCH --partition=c12m85-a100-1       # Try this or stake_a100_2 / v100 if it fails
+#SBATCH --partition=c12m85-a100-1
 #SBATCH --gres=gpu:a100:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
-#SBATCH --time=04:00:00                      # Adjust time as needed
-#SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=dc4472@nyu.edu       # Replace with your email
+#SBATCH --time=02:00:00
 
-# Load the appropriate Python and CUDA modules
+# Load modules
 module purge
 module load python/3.9
-module load cuda/11.7  # Adjust to what's supported on your cluster if needed
 
-# Create a virtual environment if not exists
-ENV_DIR="$HOME/Transparency-in-CABCDTD-Class-Project/pathology_env"
-if [ ! -d "$ENV_DIR" ]; then
-  python -m venv $ENV_DIR
-  source $ENV_DIR/bin/activate
-  pip install --upgrade pip
-  pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu117
-  pip install pandas numpy matplotlib seaborn opencv-python pydicom scikit-learn Pillow timm
-else
-  source $ENV_DIR/bin/activate
-fi
+# Activate your environment from scratch
+source /scratch/dc4472/pathology_env/bin/activate
 
-# Go to the project directory
-cd /home/dc4472/Transparency-in-CABCDTD-Class-Project/
+# Move to project directory
+cd ~/Transparency-in-CABCDTD-Class-Project
 
-# Run the script
+# Run your script
 python full_image_size_cropped_area.py
