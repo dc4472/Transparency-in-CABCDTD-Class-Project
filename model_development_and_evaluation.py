@@ -7,7 +7,8 @@
 ################################
 
 # Install packages/hubs/ others needed
-pip install pydicom
+
+#pip install pydicom
 
 # Load modules
 import os
@@ -33,7 +34,7 @@ dicom_data = pd.read_csv('all_mass_pathology.csv')
 
 # Read in the image path info
 # Specify the root path where the .png files are located
-jpg_root_path = 'all_598_augmented'
+jpg_root_path = '../all_598_augmented'
 
 # Function to get all .png file paths in a directory
 def get_jpg_file_paths(directory):
@@ -92,8 +93,9 @@ original_df = df[df['File_Paths'].apply(check_filename)]
 ###################
 
 # Install tensorflow-hub and timm
-pip install tensorflow-hub
-pip install timm
+
+#pip install tensorflow-hub
+#pip install timm
 
 # Model structure
 import torch
@@ -257,7 +259,7 @@ val_data, test_data = train_test_split(temp_data, test_size=1/2)
 
 # Create datasets and dataloaders for train, validation, and test sets
 train_dataset_ = CustomDataset(train_data_augmented, transform=transform_)
-train_loader_ = DataLoader(train_dataset_, batch_size=32, shuffle=True)
+train_loader = DataLoader(train_dataset_, batch_size=32, shuffle=True)
 
 val_dataset = CustomDataset(val_data, transform=transform_)
 val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)  # No need to shuffle validation data
@@ -279,7 +281,7 @@ optimizer = optim.Adam(model.parameters(), lr=0.000003)  # Adjust the learning r
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
-num_epochs = 20 # It could be increases based on your model's performance
+num_epochs = 0 # It could be increases based on your model's performance this was 20
 
 for epoch in range(num_epochs):
     model.train()  # Set the model to train mode
@@ -363,7 +365,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load the best model state dictionary based on the validation accuracy
-model.load_state_dict(torch.load('model_epoch_32.pth')) # You will want to update this based on your training checkpoints' performances
+model.load_state_dict(torch.load('model_epoch_20.pth')) # You will want to update this based on your training checkpoints' performances
 
 # Set the model to evaluation mode
 model.eval()
@@ -520,6 +522,6 @@ plt.title('Receiver Operating Characteristic (ROC) Curve')
 plt.legend(loc="lower right")
 
 # Save the plot as PDF with 1000dpi
-plt.savefig('roc_curve.pdf', dpi=1000)
+plt.savefig('roc_curve.png')
 plt.show()
 

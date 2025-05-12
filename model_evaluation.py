@@ -7,7 +7,7 @@
 ################################
 
 # Install packages/hubs/ others needed
-pip install pydicom
+#pip install pydicom
 
 # Load modules
 import os
@@ -92,8 +92,8 @@ original_df = df[df['File_Paths'].apply(check_filename)]
 ###################
 
 # Install tensorflow-hub and timm
-pip install tensorflow-hub
-pip install timm
+#pip install tensorflow-hub
+#pip install timm
 
 # Model structure
 import torch
@@ -278,7 +278,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load the best model state dictionary based on the validation accuracy
-model.load_state_dict(torch.load('model_epoch_32.pth')) # You will want to update this based on your training checkpoints' performances
+model.load_state_dict(torch.load('model_epoch_20.pth')) # You will want to update this based on your training checkpoints' performances
 
 # Set the model to evaluation mode
 model.eval()
